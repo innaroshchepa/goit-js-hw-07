@@ -3,10 +3,6 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
-
-
-document.body.style.backgroundColor = '#abbbc4';
-
 const controls = document.querySelector('controls');
 const inputNumberEl = document.querySelector('[type="number"]');
 const createBtnEl = document.querySelector('button[data-create]');
@@ -35,6 +31,7 @@ function destroyBoxes() {
   divBoxesEl.innerHTML = '';
 }
 function createBoxes(amount) {
+  destroyBoxes();
   let size = 30;
   const boxesArr = [];
   for (let i = 0; i < amount; i += 1) {
@@ -43,4 +40,6 @@ function createBoxes(amount) {
     boxesArr.push(div);
   }
   divBoxesEl.insertAdjacentHTML('beforeend', boxesArr.join(''));
+  
+
 }

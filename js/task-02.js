@@ -30,12 +30,22 @@ const images = [
 
 const gallery = document.querySelector(".gallery");
 
-const galleryMarkup = images.reduce(
-  (acc, { alt, url }) =>
-    (acc += `<li><img src="${url}" alt="${alt}" width = "300" height = "auto"></li>`),
-  ''
-);
+// const galleryMarkup = images.reduce(
+//   (acc, { alt, url }) =>
+//     (acc += `<li><img src="${url}" alt="${alt}" width = "300" height = "auto"></li>`),
+//   ''
+// );
+
+// gallery.insertAdjacentHTML('beforeend', galleryMarkup);
+
+const galleryMarkup = images
+  .reduce(
+    (acc, image) =>
+      acc.concat(
+        `<li><img src="${image.url}" alt="${image.alt}" width = "350" height = "auto"></li>`
+      ),
+    []
+  )
+  .join('');
 
 gallery.insertAdjacentHTML('beforeend', galleryMarkup);
-
-
